@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ExtendMute</string>
+    <string name="accessibility_service_label">ExtendMute Mute Toggle</string>
+    <string name="accessibility_service_description">Allows the Chromebook mute key to un-mute audio when audio has already been muted, turning the mute key into a true mute/un-mute toggle.</string>
+
+    <string name="status_enabled">Service enabled ✓</string>
+    <string name="status_disabled">Service disabled</string>
+
+    <string name="instructions_enabled">ExtendMute is active. Your mute key will now toggle mute on and off.</string>
+    <string name="instructions_disabled">To enable ExtendMute, tap the button below and turn on \"ExtendMute Mute Toggle\" in the Accessibility settings.</string>
+
+    <string name="btn_open_settings">Open Accessibility Settings</string>
+</resources>
