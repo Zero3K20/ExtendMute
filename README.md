@@ -37,12 +37,38 @@ For a debug build (easier to side-load):
 
 ### Installing on ChromeBook
 
-1. Enable **Linux (Beta)** or **Android apps** in ChromeOS Settings.
-2. Turn on **Developer options** inside Android Settings → About → tap "Build number" 7 times.
-3. Enable **Unknown sources** (or use `adb install`):
+#### Option A — Via the ChromeOS Files app (no Linux required)
+
+1. Enable **Android apps** in ChromeOS Settings if not already on.
+2. Download or copy the APK to your Chromebook's **Downloads** folder.
+3. Open the **Files** app and tap the APK; ChromeOS will prompt you to install it.
+4. If prompted, allow installation from unknown sources.
+
+#### Option B — Via `adb` from the ChromeOS Linux development environment (Crostini)
+
+When you use `adb` from inside the Linux container you must first connect it to
+the ChromeOS Android (ARC++) subsystem, which listens on `localhost:5555`.
+
+1. In **ChromeOS Settings → Advanced → Developers**, turn on **Linux development
+   environment** (if not already enabled).
+2. In the same **Developers** section (or inside **Linux settings**), enable
+   **ADB debugging**.  ChromeOS will display a confirmation dialog the first
+   time you connect.
+3. Open a **Linux terminal** and install the `adb` client if needed:
+   ```bash
+   sudo apt-get update && sudo apt-get install -y adb
+   ```
+4. Connect ADB to the ChromeOS Android container:
+   ```bash
+   adb connect localhost:5555
+   ```
+   You should see `connected to localhost:5555` (or `already connected`).
+   Accept the RSA-key dialog that pops up on screen if this is your first time.
+5. Install the APK:
    ```bash
    adb install app/build/outputs/apk/debug/app-debug.apk
    ```
+   A successful install prints `Success` on the last line.
 
 ## First-time setup
 
